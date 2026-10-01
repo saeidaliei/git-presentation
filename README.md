@@ -1,4 +1,4 @@
-# Git Workflow for PhD Students
+# Git Workflow presentation
 
 A beginner-friendly Slidev presentation for researchers who are new to Git and GitHub. The deck mirrors the Slidev-based presentation style of the Spack workshop, but has no Python runner or browser-side code execution.
 
