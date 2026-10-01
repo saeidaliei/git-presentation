@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v7
 
@@ -26,6 +27,17 @@ jobs:
 
       - name: Install dependencies
         run: npm install
+
+      - name: Export PDF
+        run: npm run export -- --output git-presentation.pdf --format pdf --timeout 60000
+
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: git-presentation-pdf
+          path: git-presentation.pdf
+          if-no-files-found: error
+          retention-days: 30
 
       - name: Build
         run: npm run build -- --base /${{ github.event.repository.name }}/
@@ -47,6 +59,7 @@ jobs:
       pages: write
       id-token: write
     name: Deploy
+
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
