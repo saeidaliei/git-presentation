@@ -101,7 +101,7 @@ Do **not** casually commit:
 
 Example:
 
-```gitignore
+```text
 __pycache__/
 .ipynb_checkpoints/
 *.log
