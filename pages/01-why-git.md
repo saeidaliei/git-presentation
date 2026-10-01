@@ -10,9 +10,6 @@
   <div v-click class="command-card">
     <b>His goals</b> · fast · simple design · fully distributed · safe with thousands of parallel branches
   </div>
-  <div v-click class="command-card">
-    <b>The name</b> · “git” is British slang for an unpleasant person. Linus joked that he names projects after himself.
-  </div>
 </div>
 
 <div v-click class="mt-6 text-lg">
