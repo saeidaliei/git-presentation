@@ -1,105 +1,52 @@
----
-layout: section
----
+# When things go wrong
 
-# 4. When things go wrong
+<div class="grid grid-cols-2 gap-8 mt-4 text-left items-start">
+<div v-click>
 
----
-
-# Merge conflicts are not data loss
-
-A conflict means Git could not automatically decide which change to keep.
-
-```text
-main:     A ── B ── C
-                \
-feature:          ── D ── E
-
-                  ↓ merge
-
-             conflict in file X
-```
-
-Your job is to open the conflicted file, decide the intended content, then tell Git the conflict is resolved.
-
----
-
-# The basic conflict workflow
-
-```bash
-git status
-```
-
-Open the file and look for markers:
+**A merge conflict is not data loss.** Git just needs you to choose:
 
 ```text
 <<<<<<< HEAD
-version from your current branch
+version from your branch
 =======
 version from the other branch
 >>>>>>> other-branch
 ```
 
-Edit the file into the final intended state, then:
+Edit to the final intended state, then `git add` and `git commit`.
 
-```bash
-git add path/to/file
-
-git commit
-```
-
-<div class="mt-4 text-sm muted">Do not blindly keep both sides. Understand the science or code before resolving a research conflict.</div>
-
----
-
-# Undo safely: three ideas
-
-### “I changed a file and want the last committed version.”
-
-```bash
-git restore path/to/file
-```
-
-### “I made a commit that should be undone.”
-
-```bash
-git revert <commit>
-```
-
-### “I want to rewrite local history.”
-
-That is where commands such as `reset` and `rebase` appear. Learn them later and use them deliberately—especially after a branch has been pushed or shared.
-
----
-
-# `git restore` vs `git revert`
-
-<div class="grid grid-cols-2 gap-8 mt-8 text-left">
-<div class="command-card">
-<h3 class="font-700">restore</h3>
-<p class="mt-2">Changes files in your working tree.</p>
-<p class="mt-4 text-sm muted">Good for discarding an uncommitted local edit you no longer want.</p>
 </div>
-<div class="command-card">
-<h3 class="font-700">revert</h3>
-<p class="mt-2">Creates a new commit that reverses an earlier commit.</p>
-<p class="mt-4 text-sm muted">Useful when the history is already shared with others.</p>
+<div>
+
+<div v-click class="command-card">
+  <h3 class="font-700"><code>git restore file</code></h3>
+  <p class="mt-2 text-sm muted">Discard an uncommitted local edit.</p>
+</div>
+
+<div v-click class="command-card mt-4">
+  <h3 class="font-700"><code>git revert COMMIT</code></h3>
+  <p class="mt-2 text-sm muted">New commit that undoes an old one. Safe for shared history.</p>
+</div>
+
 </div>
 </div>
 
+<div v-click class="mt-6 text-sm muted">
+  Do not blindly keep both sides: understand the science or code first. Leave <code>reset</code> and <code>rebase</code> for later.
+</div>
+
+<!--
+~1:00. Committed work is very hard to lose, so commit early.
+-->
+
 ---
 
-# Research projects need a `.gitignore`
+# Research habits that save you
 
-Do **not** casually commit:
+<div class="grid grid-cols-2 gap-8 mt-4 text-left items-start">
+<div v-click>
 
-- raw data that should live in a data repository
-- generated output that can be reproduced
-- large binaries
-- editor files
-- passwords, API keys, tokens, credentials
-
-Example:
+Add a `.gitignore`:
 
 ```text
 __pycache__/
@@ -110,22 +57,26 @@ results/
 *.fits
 ```
 
-<div class="mt-4 text-sm muted">The exact policy should match your lab, funder, data-management plan, and repository rules.</div>
+</div>
+<div class="text-lg">
 
----
+<v-clicks>
 
-# Git is not a backup for everything
+- **In Git:** code, small configs, manuscript, README
+- **Elsewhere:** large raw data (data archive), secrets (environment or secret manager)
+- **Regenerate:** reproducible outputs
+- **Tag** what you publish: `git tag v1.0-submission`
+- **Archive** a release on Zenodo for a citable DOI
 
-Think about **what belongs in Git** and **what belongs elsewhere**.
+</v-clicks>
 
-| Research object | Typical home |
-|---|---|
-| Source code | Git |
-| Small configuration files | Git |
-| Manuscript source | Git |
-| README / documentation | Git |
-| Large raw datasets | Data storage / archive |
-| Secrets | Secret manager / environment |
-| Reproducible generated files | Often regenerate instead of commit |
+</div>
+</div>
 
-The key question is not “Can Git store this?” but “Should this repository own this file?”
+<div v-click class="mt-6 text-sm muted">
+  Ask “should this repository own this file?”, not “can Git store it?”. Deleting a committed password later does not erase it from history.
+</div>
+
+<!--
+~1:00. Match the policy to your lab, funder and data-management plan.
+-->

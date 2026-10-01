@@ -35,15 +35,18 @@ The workshop intentionally avoids live code runners. The slides use ordinary Sli
 
 The command examples follow current Git terminology, including `git switch` for branch switching and `git restore` for restoring files. After the first local `npm install`, commit the generated `package-lock.json` to pin the dependency tree for reproducible builds. See the official Git and GitHub documentation for command details.
 
-## Suggested workshop flow
+## Talk flow (about 9 minutes, 11 slides)
 
-1. What Git is and why researchers use it
-2. Local repository basics
-3. The everyday save/commit loop
-4. Branches
-5. Sharing with GitHub
-6. Pull requests and review
-7. Keeping branches up to date
-8. Conflicts and recovery
-9. Research-specific `.gitignore` habits
-10. Short hands-on exercises
+1. Title
+2. Where Git came from (Linus Torvalds, 2005)
+3. The problem Git solves
+4. Git vs GitHub
+5. Four places: the mental model
+6. The everyday loop
+7. Branches and pull requests
+8. When things go wrong
+9. Research habits
+10. Default workflow and cheat sheet
+11. Try it today, resources, questions
+
+Content appears step by step: press the right arrow (or space) to reveal the next item. Each slide has presenter notes with a time budget; open presenter mode with `p`.
