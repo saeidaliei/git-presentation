@@ -1,7 +1,7 @@
 ---
 theme: apple-basic
-title: Git Workflow for PhD Students
-titleTemplate: "%s - Git Workflow for PhD Students"
+title: Git Workflow
+titleTemplate: "%s - Git Workflow"
 info: A beginner-friendly workshop on Git and GitHub for research workflows
 author: Saeid Aliei
 keywords: git,github,workflow,phd,research,version-control
