@@ -1,0 +1,22 @@
+# Node
+node_modules/
+.npm/
+.pnpm-store/
+
+# Slidev build output
+dist/
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Local environment files
+.env
+.env.*
+!.env.example
+
+# Temporary files
+*.tmp
+*.swp

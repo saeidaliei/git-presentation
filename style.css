@@ -1,0 +1,57 @@
+:root {
+  --slidev-code-font-size: 0.72em;
+  --slidev-code-line-height: 1.25;
+  --slidev-code-padding: 10px;
+}
+
+.slidev-code-line-numbers .slidev-code code .line::before {
+  margin-right: 0.65rem;
+}
+
+pre {
+  max-height: 430px;
+}
+
+code {
+  font-variant-ligatures: none;
+}
+
+::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #999;
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ca1167;
+}
+
+.git-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  background: #fafafa;
+  font-size: 0.7rem;
+}
+
+.command-card {
+  border: 1px solid #ddd;
+  border-radius: 14px;
+  padding: 0.75rem 1rem;
+  background: #fafafa;
+}
+
+.muted {
+  color: #666;
+}
